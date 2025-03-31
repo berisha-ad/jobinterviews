@@ -1,11 +1,12 @@
 import Section from "../shared/Section";
 import Container from "../shared/Container";
 import { Link } from "react-router-dom";
+import heroImage from "../../assets/hero.jpg";
 
 const Hero = () => {
   return (
-    <Section className="h-screen">
-      <Container className="flex-col items-center text-center h-full justify-center">
+    <Section className="h-screen relative">
+      <Container className="flex-col items-center text-center h-full relative z-20 justify-center">
         <h1 className="text-4xl font-extralight">
           Sei bereit für deinen Traumjob – Practice with AI!
         </h1>
@@ -16,6 +17,12 @@ const Hero = () => {
           Starte jetzt
         </Link>
       </Container>
+      <div className="gradient opacity-90 absolute top-0 w-full h-full z-10"></div>
+      <img
+        className="absolute w-full h-full top-0 object-cover"
+        src={heroImage}
+        alt="Job interview"
+      />
     </Section>
   );
 };

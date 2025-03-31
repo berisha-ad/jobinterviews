@@ -14,8 +14,8 @@ const NavItem = ({ children, to }) => {
 
 const Navbar = () => {
   return (
-    <header className="fixed top-0 w-screen flex justify-center p-6">
-      <div className="bg-gradient-to-r from-violet-600 to-blue-700 rounded-2xl w-5xl">
+    <header className="fixed top-0 w-screen z-50 flex justify-center p-6">
+      <div className="bg-gray-900 shadow-2xl thisborder rounded-2xl w-5xl">
         <Container className="items-center">
           <Link className="mr-auto text-white font-extrabold text-2xl" to="/">
             JOB INTERVIEWS

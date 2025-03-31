@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import Spinner from "../shared/Spinner";
+import reset from "../../assets/reset.svg";
 
 const ChatBot = ({ job }) => {
   const [userResponse, setUserResponse] = useState("");
@@ -72,13 +73,17 @@ const ChatBot = ({ job }) => {
     <>
       <div className="h-screen flex flex-col items-center justify-center">
         <div className="flex flex-col items-center gap-4 w-full mb-4">
-          <form onSubmit={clearChat}>
+          <form
+            className="w-full p-3 flex mb-4 justify-between items-center"
+            onSubmit={clearChat}
+          >
             <button
               type="submit"
-              className="px-6 py-3 mb-4 font-semibold cursor-pointer text-white bg-red-600 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105"
+              className="px-3 py-3 cursor-pointer bg-gray-900 rounded-2xl shadow-lg transition-all duration-300 transform hover:bg-gray-800 hover:scale-105"
             >
-              Neu starten
+              <img src={reset} className="w-6" alt="Reset interview" />
             </button>
+            {loading && <Spinner />}
           </form>
         </div>
 
@@ -116,17 +121,20 @@ const ChatBot = ({ job }) => {
             </div>
           </div>
 
-          <div className="fixed bottom-0 left-0 w-screen p-8 bg-gradient-to-r flex flex-col items-center from-violet-600 to-blue-700">
-            <form onSubmit={handleSubmit} className="flex items-center gap-2">
+          <div className="fixed bottom-0 left-0 w-screen p-8 bg-gradient-to-r flex flex-col items-center bg-gray-900">
+            <form onSubmit={handleSubmit} className="flex items-center gap-4">
               <input
-                className="p-3 rounded-2xl w-3xl h-max bg-white text-black"
+                className="p-3 rounded-2xl w-3xl h-max bg-gray-800 thisborder text-white placeholder:text-gray-600"
                 name="userResponse"
                 id="userResponse"
                 placeholder="Deine Antwort hier"
                 value={userResponse}
                 onChange={(e) => setUserResponse(e.target.value)}
               />
-              <button className="px-6 py-3 font-semibold cursor-pointer text-white bg-blue-950 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105">
+              <button
+                disabled={loading}
+                className="px-6 py-3 font-semibold cursor-pointer disabled:bg-gray-600 disabled:opacity-25 disabled:pointer-events-none disabled:cursor-not-allowed disabled text-white bg-blue-950 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105"
+              >
                 Antworten
               </button>
               {loading && <Spinner />}

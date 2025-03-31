@@ -2,3 +2,19 @@ body {
   background-color: #09121f;
   color: #8db6cd;
 }
+
+.gradient {
+  background-color: #09121f;
+}
+
+.thisborder {
+  border: 0.01rem solid #745feb;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

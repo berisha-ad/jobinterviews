@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Section from "../shared/Section";
 import Container from "../shared/Container";
 import ChatBot from "./ChatBot";
+import heroImage from "../../assets/hero.jpg";
 
 const SelectJob = () => {
   const [job, setJob] = useState("");
@@ -19,14 +20,14 @@ const SelectJob = () => {
   };
 
   return (
-    <Section className="h-screen flex flex-col justify-center">
-      <Container>
+    <Section className="h-screen flex flex-col relative justify-center">
+      <Container className="relative z-20">
         {!submittedJob ? (
-          <div className="rounded-2xl bg-white p-8 w-4xl">
-            <h1 className="text-gray-700 text-3xl">Wähle deinen Traumjob:</h1>
+          <div className="rounded-2xl thisborder bg-gray-900 shadow-2xl p-8 w-4xl">
+            <h1 className="text-gray-400 text-3xl">Wähle deinen Traumjob:</h1>
             <form onSubmit={handleSubmit}>
               <input
-                className="rounded-xl w-96 mt-4 bg-gray-100 p-2 border text-black placeholder:text-gray-400"
+                className="rounded-xl w-96 mt-4 bg-gray-800 p-2 thisborder text-white placeholder:text-gray-600"
                 type="text"
                 name="job"
                 value={job}
@@ -51,6 +52,12 @@ const SelectJob = () => {
           <ChatBot job={job} />
         )}
       </Container>
+      <div className="gradient opacity-90 absolute top-0 w-full h-full z-10"></div>
+      <img
+        className="absolute w-full h-full top-0 object-cover"
+        src={heroImage}
+        alt="Job interview"
+      />
     </Section>
   );
 };
